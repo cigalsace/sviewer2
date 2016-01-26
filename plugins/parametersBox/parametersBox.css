@@ -1,0 +1,18 @@
+/* parametersBox CSS */
+#parametersBox {
+    //display: none;
+}
+#panelParameters-popup {
+    top: 54px !important;
+    right: 4px !important;
+    left: auto !important;
+    z-index: 8020 !important;
+    max-width:80%;
+    width: 450px;
+}
+#panelParameters-screen {
+    display: none;
+}
+#panelParameters .ui-content {
+    font-size: small;
+}

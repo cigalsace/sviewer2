@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+    <head>
+        <title>geOrchestra sviewer</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=100" />
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+        <!-- CSS files -->
+        <link rel="stylesheet" href="libs/ol3/ol.css" type="text/css" />
+        <!--<link rel="stylesheet" href="libs/jquerymobile/jquery.mobile-1.4.5.min.css" />-->
+        <link rel="stylesheet" href="libs/jquerymobile/themes/theme1/jquery.mobile.icons.min.css" />
+        <link rel="stylesheet" href="libs/jquerymobile/themes/theme1/theme1.min.css" />
+        <link rel="stylesheet" href="libs/jquerymobile/jquery.mobile.structure-1.4.5.min.css" />
+        <link rel="stylesheet" href="css/sviewer.css" type="text/css" />
+    </head>
+    <body data-theme="a">
+        <div data-role="page" id="sviewer">
+            <!-- content -->
+            <div data-role="main" id="frameMap" class="sv-framemap ui-content">
+                <!-- map -->
+                <div id="map" class="sv-map" tabindex="0">
+                    <!--<div id="marker"></div>-->
+                </div>
+                <!-- map controls -->
+                <div id="mapcontrols" class="sv-map-controls ui-nodisc-icon">
+                    <a id="zeBt" href="#" accesskey="w" class="i18n ui-btn ui-icon-home-c ui-btn-corner-all" title="initial view">&nbsp;</a>
+                    <a id="ziBt" href="#" accesskey="+" class="i18n ui-btn ui-icon-plus-c ui-btn-corner-all" title="zoom +">&nbsp;</a>
+                    <a id="zoBt" href="#" accesskey="-" class="i18n ui-btn ui-icon-minus-c ui-btn-corner-all" title="zoom -">&nbsp;</a>
+                    <a id="bgBt" href="#" accesskey="b" class="i18n ui-btn ui-icon-layer-c ui-btn-corner-all" title="background">&nbsp;</a>
+                    <a id="prBt" href="#" accesskey="p" class="i18n ui-btn ui-icon-print-c ui-btn-corner-all" title="print" download="map.png">&nbsp;</a>
+                </div>
+
+                <div id="panelcontrols" class="sv-map-panels" data-role="controlgroup" data-type="horizontal" class="ui-btn-right">
+                    <a href="#panelShare" accesskey="m" id="panelShareBtn" class="i18n ui-btn ui-icon-edit ui-btn-icon-right" data-rel="popup" data-position-to="window" title="Map">&nbsp;</a>
+                    <a href="#panelLegend" accesskey="i" id="panelLegendBtn" class="i18n ui-btn ui-icon-bullets ui-btn-icon-notext" data-rel="popup" data-position-to="window" title="Legend">Legend</a>
+                </div>
+            </div>
+            <!-- shareBox panel -->
+            <div id="panelShare" class="sv-panel" data-role="popup" data-theme="b" data-history="false">
+                <div data-role="header">
+                    <h3 class="i18n">Map</h3>
+                    <a href="#" data-rel="back" class="i18n sv-close ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-right" title="Close">Close</a>
+                </div>
+                <div data-role="content" class="ui-mini ui-content">
+                    <label for="setTitle" class="i18n">Title</label>
+                    <input type="text" name="setTitle" id="setTitle" class="i18n" value="" placeholder="change title"/>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <!-- social links -->
+                            <div id="socialLinks">
+                                <a class="ui-btn ui-shadow ui-corner-all sv-hidden" target="_blank" href="" title=""></a>
+                                <div></div>
+                            </div>
+                            <!-- to georchestra viewer -->
+                            <form id="georchestraForm" target="_blank" method="post" action="">
+                                <input type="hidden" id="georchestraFormData" name="data" value="" />
+                                <input type="submit" class="i18n ui-btn ui-corner-all" title="Edit with geOrchestra" value="geOrchestra" />
+                            </form>
+                        </div>
+                        <!-- QQR code -->
+                        <div class="ui-block-a">
+                            <div class="center sv-permalink-wrap">
+                                <a id="permalink" class="i18n ui-btn ui-shadow ui-corner-all" data-ajax="false" href="#" title="Permalink to this map">Permalink</a>
+                                <div id="qrcode"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- legendBox panel -->
+            <div id="panelLegend" class="sv-panel" data-role="popup" data-theme="b" data-history="false">
+                <div data-role="header">
+                    <h3 class="i18n">Legend</h3>
+                    <a href="#" data-rel="back" class="i18n ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-right" title="Close">Close</a>
+                </div>
+                <div data-role="content" class="ui-content">
+                    <div id="legend" class="sv-legend"></div>
+                </div>
+            </div>
+
+            <div id="panelAttributions"></div>
+        </div>
+        <!-- end page -->
+
+        <!-- JS files - external libraries -->
+        <script type="text/javascript" src="libs/jquery/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="libs/jquerymobile/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="libs/proj4/proj4.js"></script>
+        <script type="text/javascript" src="libs/ol3/ol-debug.js"></script>
+        <script type="text/javascript" src="libs/qrcodejs/qrcode.min.js"></script>
+        <!-- JS files - local libraries -->
+        <script type="text/javascript">
+            //<![CDATA[
+            $(document).bind("mobileinit", function() {
+                $.mobile.hashListeningEnabled = false;
+                $.mobile.loader.prototype.options.text = "loading";
+                $.mobile.loader.prototype.options.textVisible = false;
+                //$.mobile.loader.prototype.options.theme = "a";
+                $.mobile.loader.prototype.options.html = "";
+                $.mobile.activeBtnClass = 'unused';
+            });
+            /**
+             * Sviewer application namespace.
+             * @namespace
+             */
+            var sv = {};
+            sv.hardConfig = {};
+            //]]>
+        </script>
+        <script type="text/javascript" src="i18n/i18n.js"></script>
+        <script type="text/javascript" src="js/config.js"></script>
+        <script type="text/javascript" src="js/sviewer.js"></script>
+    </body>
+</html>

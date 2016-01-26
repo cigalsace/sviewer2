@@ -1,0 +1,15 @@
+/* parametersBox CSS */
+#parametersBox {
+    //display: none;
+}
+#panelLocate-popup {
+    top: 54px !important;
+    right: 4px !important;
+    left: auto !important;
+    z-index: 8020 !important;
+    max-width:80%;
+    width: 320px;
+}
+#panelLocate-screen {
+    display: none;
+}

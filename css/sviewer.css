@@ -1,0 +1,274 @@
+
+html, body, #sviewer {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.sv-hidden {
+    display: none;
+}
+
+.sv-framemap.ui-content {
+    padding: 0;
+}
+.ui-content, .ui-content #map {
+    height: inherit;
+}
+
+/* Map */
+
+.sv-map .ol-zoom a {
+    display: none;
+}
+
+.sv-map .ol-scale-line {
+    background-color: rgba(255,255,255,0.3);
+}
+
+.sv-map .ol-scale-line-inner {
+    //border-color: #333333;
+}
+
+
+
+#panelAttributions {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    z-index: 8000;
+    width: 80%;
+}
+#panelAttributions .ol-attribution {
+    max-width: none;
+    padding:0;
+    background-color: transparent;
+}
+#panelAttributions .ol-attribution ul {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+#panelAttributions .ol-attribution button.ui-btn {
+    width: 1.375em;
+}
+
+
+/* Map controls */
+#mapcontrols {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 44px;
+    z-index: 8000;
+}
+
+#mapcontrols .ui-btn {
+    width: 44px;
+    height: 44px;
+    margin: 0 0 4px 0;
+    padding: 0;
+    //background-repeat: no-repeat !important;
+    background-position: 50% 50% !important;
+}
+
+@media screen and (max-width: 600px),
+screen and (max-height: 400px) {
+    #mapcontrols .ui-btn {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        background-size: 85% 85%;
+    }
+
+}
+
+#mapcontrols .ui-btn-active {
+    background-color: #fff !important;
+}
+
+.ui-icon-home-c {
+    background-image: url('images/home.png') !important;
+}
+.ui-icon-plus-c {
+    background-image: url('images/zoom-plus.png') !important;
+}
+.ui-icon-minus-c {
+    background-image: url('images/zoom-minus.png') !important;
+}
+.ui-icon-layer-c {
+    background-image: url('images/map.png') !important;
+}
+.ui-icon-print-c {
+    background-image: url('images/print.png') !important;
+}
+
+/* Map panels */
+#panelcontrols {
+    position: absolute;
+    top: -4px;
+    right: 4px;
+    margin-left: 56px;
+    z-index: 8010;
+}
+
+#panelLegendBtn {
+    display: none;
+}
+
+.sv-map-panels {
+    position: absolute;
+    top: -4px;
+    right: 4px;
+    margin-left: 56px;
+    z-index: 8010;
+}
+
+#panelLegend-popup, #panelShare-popup {
+    top: 54px !important;
+    right: 4px !important;
+    left: auto !important;
+    z-index: 8020 !important;
+    max-width:80%;
+    width: 420px;
+}
+#panelLegend-screen, #panelShare-screen {
+    display: none;
+}
+
+.sv-panel {
+    overflow-y: auto;
+}
+
+@media screen and (max-width: 600px) {
+    .ui-controlgroup-controls .ui-btn {
+        font-size: 10pt;
+    }
+}
+@media screen and (max-height: 400px) {
+    .ui-controlgroup-controls .ui-btn {
+        font-size: 10pt;
+    }
+}
+
+#panelShareBtn {
+    max-width: 32em;
+    text-overflow: ellipsis !important;
+}
+@media screen and (max-width: 460px) {
+    #panelShareBtn {
+        max-width: 8em;
+    }
+}
+@media screen and (max-width: 380px) {
+    #panelShareBtn {
+        max-width: 6em;
+    }
+}
+
+
+/* map components */
+
+#marker {
+    width: 30px;
+    height: 38px;
+    background: transparent url('images/pin-red.png') no-repeat;
+}
+
+/* panels */
+
+#panelLegend-screen, #panelShare-screen {
+    display: none;
+}
+
+.controlgroup-textinput{
+    padding-top:.22em;
+    padding-bottom:.1em;
+}
+
+/* legend layout */
+.sv-legend {
+    font-size: small;
+}
+.sv-legend a {
+    text-decoration: none;
+}
+.sv-legend h4,p {
+    padding: 0 0 2px 0 !important;
+    margin: 0;
+}
+.sv-legend hr {
+    clear: both;
+}
+.sv-md {
+    //border: 1px solid #cccccc;
+    //border-radius: 4px;
+    padding: 6px;
+    margin-bottom: 6px;
+    //background-color: #ffffff;
+}
+.sv-md-title {
+    font-size: x-small;
+}
+.sv-md-abstract {
+}
+.sv-md-attrib {
+    display: block;
+    float: right;
+    text-align: right;
+    max-width: 80px;
+    font-size: x-small;
+}
+.sv-md-logo {
+    max-height: 64px;
+    max-width: 64px;
+}
+.sv-md-legend {
+    padding: 4px;
+    max-width: 320px;
+}
+.sv-md-meta {
+    text-decoration: none;
+}
+
+/* share layout */
+.sv-permalink-wrap {
+    text-align: center;
+    margin: 0 0 0 8px;
+}
+.ui-block-a {
+    clear: none;
+}
+
+/* query layout */
+/*
+.sv-noitem {
+    font-style: italic;
+    color: #666;
+}
+
+.sv-key {
+    color: #999;
+    font-size: small;
+}
+
+.sv-value {
+    font-size: small;
+}
+
+.sv-feature a {
+    font-size: 0.7em;
+}
+.sv-location a {
+    font-size: 0.7em;
+}
+*/
+
+/* Overrides openlayers styles */
+
+
+label {
+    font-size: small !important;
+}
+
+p.center {
+    text-align: center;
+}

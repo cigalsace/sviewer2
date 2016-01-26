@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+    <head>
+        <title>geOrchestra sviewer</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=100" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+        <!-- CSS files -->
+        <link rel="stylesheet" href="libs/ol3/ol.css" type="text/css" />
+    </head>
+    <body>
+
+        <div id="map" class="map"></div>
+        </div>
+        <!-- JS files - external libraries -->
+        <script type="text/javascript" src="libs/proj4/proj4.js"></script>
+        <script type="text/javascript" src="libs/ol3/ol-debug.js"></script>
+        <!-- JS files - local libraries -->
+        <script type="text/javascript">
+            //<![CDATA[
+            $(document).bind("mobileinit", function() {
+                $.mobile.hashListeningEnabled = false;
+                $.mobile.loader.prototype.options.text = "loading";
+                $.mobile.loader.prototype.options.textVisible = false;
+                $.mobile.loader.prototype.options.theme = "a";
+                $.mobile.loader.prototype.options.html = "";
+                $.mobile.activeBtnClass = 'unused';
+            });
+            var sviewer = {};
+            sviewer.hardConfig = {};
+            //]]>
+        </script>
+        <script type="text/javascript" src="js/config-2.js"></script>
+        <script type="text/javascript" src="i18n/i18n-2.js"></script>
+        <script type="text/javascript" src="js/sviewer-2.js"></script>
+        <script type="text/javascript">
+            //<![CDATA[
+            /*
+            var map = new ol.Map({
+                layers : [new ol.layer.Tile({
+                    source : new ol.source.OSM()
+                })],
+                controls : ol.control.defaults({
+                    attributionOptions : ( {
+                        collapsible : false
+                    })
+                }),
+                target : 'map',
+                view : new ol.View({
+                    center : [0, 0],
+                    zoom : 2
+                })
+            });
+            */
+            //]]>
+        </script>
+        
+    </body>
+</html>

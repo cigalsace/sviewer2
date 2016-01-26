@@ -1,0 +1,26 @@
+/* TimeBox CSS */
+#timeBox {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+}
+#timeSliderBox {
+    float: right;
+    width: 88%;
+}
+#timeSliderBox input#timeSlider {
+    display: none;
+}
+#timeSliderBox .ui-slider-track {
+    margin-left: -18px;
+    width: 99%;
+}
+#timeInputBox {
+    margin-left: 4px;
+    float: left;
+    width: 10%;
+}
+#timeInput {
+    text-align: center;
+}

@@ -1,0 +1,25 @@
+<!-- locateBox panel -->
+<div id="panelLocate" class="sv-panel" data-role="popup" data-theme="b">
+    <div data-role="header">
+        <h3 class="i18n">Locate</h3>
+        <a href="#" data-rel="back" class="i18n ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-right" title="Close">Close</a>
+    </div>
+    <div data-role="content" class="ui-content">
+        <form id="addressForm" method="post" action="#">
+            <label for="searchInput" class="i18n">Address and/or city</label>
+            <fieldset data-role="controlgroup" data-type="horizontal" class="ui-mini">
+                <input type="text" name="searchInput"id="searchInput" data-wrapper-class="controlgroup-textinput ui-btn ui-mini" value="" title="Address and/or city" />
+                <button class="i18n ui-btn ui-icon-search ui-btn-icon-notext " title="Locate">
+                    Locate
+                </button>
+            </fieldset>
+            <button id="zpBt" class="i18n ui-btn ui-icon-navigation ui-corner-all ui-mini " title="Where am I ?">
+                Where am I ?
+            </button>
+            <span id="locateMsg"> </span>
+        </form>
+        <div>
+            <ul data-role="listview" data-inset="true" id="searchResults"></ul>
+        </div>
+    </div>
+</div>
